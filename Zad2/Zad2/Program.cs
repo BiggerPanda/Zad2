@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.IO;
 
+/*
+ * API Connect
+ * Save to DB
+ * Read from DB
+ * Calculate 
+ * Clean looking form
+ */
 
 namespace Zad2
 {
     static class Program
     {
-        /// <summary>
-        /// Główny punkt wejścia dla aplikacji.
-        /// </summary>
         [STAThread]
-        static void Main()
+        static async Task Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var json = File.ReadAllText("st_list.json");
+            List<Student> students = JsonConvert.DeserializeObject<List<Student>>(json);
+            foreach (var s in students)
+                Console.WriteLine(s.studentId + ":\t" + s.studentName);
         }
     }
 }
