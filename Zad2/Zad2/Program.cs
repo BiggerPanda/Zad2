@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Zad2
 {
     static class Program
@@ -15,9 +14,12 @@ namespace Zad2
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            DataTaker taker = new DataTaker();
+        
         }
     }
 }
